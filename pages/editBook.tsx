@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useDispatch} from "react-redux";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { useLocation, useParams } from "react-router-dom";
 import { updateBook } from "../slices/bookSlice";
 import { useForm } from "react-hook-form";
 import { ToastContainer } from "react-toastify";
+import { deleteBook, getAllBooks } from "../slices/bookSlice";
 
 const EditBook = ({state}) => {
   const {
@@ -12,19 +14,20 @@ const EditBook = ({state}) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const location = useLocation();
+
   const dispatch = useDispatch();
   const router = useRouter();
-  const [id] = useState(location.state.id);
-
-  console.log(location.state.books.title)
-  console.log(location.state.books.author)
   
-  const [title, setTitle] = useState(location.state.title);
-  const [author, setAuthor] = useState(location.state.author);
+  // const [id] = useState(location.state.id);
+
+  // console.log(location.state.books.title)
+  // console.log(location.state.books.author)
+  
+  // const [title, setTitle] = useState(location.state.title);
+  // const [author, setAuthor] = useState(location.state.author);
 
   const onSubmit = (e) => {
-    dispatch(updateBook({ id, title, author }));
+    // dispatch(updateBook({ id, title, author }));
     router.push("/showBooks");
   };
   return (

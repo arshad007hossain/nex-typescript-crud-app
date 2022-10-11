@@ -36,7 +36,7 @@ const BooksView = () => {
                 <td>{title}</td>
                 <td>{author}</td>
                 <td>
-                  <Link href="/editBook">
+                  <Link href={`/editBook/{id}`}>
                   <button className="btn btn-primary mx-2">Edit</button>
                   </Link>
                   <button className="btn btn-info"

@@ -11,12 +11,12 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <article>
-        <p className="ms-2 me">
+        <p className="ms-2">
           Why Programming? You may already have used software, perhaps for word
           processing or spreadsheets, to solve problems. Perhaps now you are
           curious to learn how programmers write software. A program is a set of
           step-by-step instructions that directs the computer to do the tasks
-          you want it to do and produce the results you want.{" "}
+          you want it to do and produce the results you want.
         </p>
       </article>
     </div>
