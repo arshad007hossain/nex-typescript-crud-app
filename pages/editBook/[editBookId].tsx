@@ -1,14 +1,15 @@
 import React, { useState} from "react";
 import { useRouter } from "next/router";
 import { useDispatch} from "react-redux";
-import { useAppDispatch, useAppSelector } from "../hooks";
-import { useLocation, useParams } from "react-router-dom";
-import { updateBook } from "../slices/bookSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { getAllBooks, updateBook} from "../../slices/bookSlice";
 import { useForm } from "react-hook-form";
 import { ToastContainer } from "react-toastify";
-import { deleteBook, getAllBooks } from "../slices/bookSlice";
 
-const EditBook = ({state}) => {
+const EditBook = () => {
+
+  const AllBooks = useAppSelector(getAllBooks);
+  
   const {
     register,
     handleSubmit,
@@ -17,17 +18,14 @@ const EditBook = ({state}) => {
 
   const dispatch = useDispatch();
   const router = useRouter();
-  
-  // const [id] = useState(location.state.id);
+  const editBookId = router.query.editBookId
 
-  // console.log(location.state.books.title)
-  // console.log(location.state.books.author)
+  const singlebook = AllBooks.map((x)=> x.id = editBookId)
   
-  // const [title, setTitle] = useState(location.state.title);
-  // const [author, setAuthor] = useState(location.state.author);
+  console.log(singlebook)
 
   const onSubmit = (e) => {
-    // dispatch(updateBook({ id, title, author }));
+    // dispatch(updateBook());
     router.push("/showBooks");
   };
   return (
